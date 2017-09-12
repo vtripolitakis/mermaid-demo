@@ -1,8 +1,9 @@
 # mermaid-demo
 Mermaid demo
 
-* steps to get started
-- npm install
-- weback
-- run a web server e.g. python -m SimpleHTTPServer 
-- point browser to the server address and port and enjoy
+# steps to get started
+
+- `npm install`
+- `webpack`
+- run a web server e.g. `python -m SimpleHTTPServer`
+- point browser to the server address (e.g. `http://127.0.0.1:8000` for the Python server) and port and enjoy
