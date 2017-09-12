@@ -1,6 +1,6 @@
 import mermaidAPI from "mermaid"
 import * as $ from "jquery"
-import "./callbacks"
+import "./src/callbacks"
 
 $("#btn").click(()=>{    
     mermaidAPI.initialize({startOnLoad:true,cloneCssStyles:false})

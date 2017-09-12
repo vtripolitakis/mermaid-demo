@@ -1,5 +1,6 @@
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
+const dist_path = __dirname + "/dist/"
 const config = {
   target: 'web',
   entry: {
@@ -7,7 +8,7 @@ const config = {
   },
   devtool: 'source-map',
   output: {
-    path: __dirname,
+    path: dist_path,
     filename: '[name].bundle.js'
   },
   module: {
