@@ -2,24 +2,19 @@ import mermaidAPI from "mermaid"
 import * as $ from "jquery"
 import "./src/callbacks"
 
-$("#btn").click(()=>{    
-    mermaidAPI.initialize({startOnLoad:true,cloneCssStyles:false})
-    let graphDefinition = `graph LR
-      ath((Athens))-- airplane -->chq;
-      chq((Chania))-- airplane -->ath
-      ath-- airplane -->her;
-      her((Heraklion))-- airplane -->ath
-      her-. national road .->rth
-      chq-. national road .->rth
-      rth((Rethymnon))-. national road .->her
-      rth-. national road .->chq
-      click ath myActionATH "ATH"
-      click chq myActionCHQ
-      click her myActionHER
-      click rth myActionRETH;`
-    let cb = function(svgGraph, bindFunctions) {
-        $("#mermaid").html(svgGraph)
-        bindFunctions($("#mermaid")[0])
-    }
-    mermaidAPI.render("d", graphDefinition, cb)
-})
+
+//init
+//Note: We rely on a config.js file setting the global conf variable.
+mermaidAPI.initialize({startOnLoad:true,cloneCssStyles:false})
+
+//get the graph definition
+let graphDefinition = conf.graphDefinition
+
+//bind the callback functions defined in src/callbacks.js
+let cb = function(svgGraph, bindFunctions) {
+    $("#mermaid").html(svgGraph)
+    bindFunctions($("#mermaid")[0])
+}
+
+// render
+mermaidAPI.render("d", graphDefinition, cb)

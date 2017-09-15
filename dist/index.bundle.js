@@ -50545,27 +50545,21 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
-__WEBPACK_IMPORTED_MODULE_1_jquery__("#btn").click(() => {
-    __WEBPACK_IMPORTED_MODULE_0_mermaid___default.a.initialize({ startOnLoad: true, cloneCssStyles: false });
-    let graphDefinition = `graph LR
-      ath((Athens))-- airplane -->chq;
-      chq((Chania))-- airplane -->ath
-      ath-- airplane -->her;
-      her((Heraklion))-- airplane -->ath
-      her-. national road .->rth
-      chq-. national road .->rth
-      rth((Rethymnon))-. national road .->her
-      rth-. national road .->chq
-      click ath myActionATH "ATH"
-      click chq myActionCHQ
-      click her myActionHER
-      click rth myActionRETH;`;
-    let cb = function (svgGraph, bindFunctions) {
-        __WEBPACK_IMPORTED_MODULE_1_jquery__("#mermaid").html(svgGraph);
-        bindFunctions(__WEBPACK_IMPORTED_MODULE_1_jquery__("#mermaid")[0]);
-    };
-    __WEBPACK_IMPORTED_MODULE_0_mermaid___default.a.render("d", graphDefinition, cb);
-});
+//init
+//Note: We rely on a config.js file setting the global conf variable.
+__WEBPACK_IMPORTED_MODULE_0_mermaid___default.a.initialize({ startOnLoad: true, cloneCssStyles: false });
+
+//get the graph definition
+let graphDefinition = conf.graphDefinition;
+
+//bind the callback functions defined in src/callbacks.js
+let cb = function (svgGraph, bindFunctions) {
+    __WEBPACK_IMPORTED_MODULE_1_jquery__("#mermaid").html(svgGraph);
+    bindFunctions(__WEBPACK_IMPORTED_MODULE_1_jquery__("#mermaid")[0]);
+};
+
+// render
+__WEBPACK_IMPORTED_MODULE_0_mermaid___default.a.render("d", graphDefinition, cb);
 
 /***/ }),
 /* 189 */
